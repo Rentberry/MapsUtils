@@ -6,7 +6,7 @@ use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 
 /**
- * Class MapsCity
+ * MapsCity
  */
 class MapsCity
 {

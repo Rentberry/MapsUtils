@@ -9,7 +9,7 @@ use Rentberry\MapsUtils\Cache\CacheInterface;
 use Rentberry\MapsUtils\Google\Objects\Place;
 
 /**
- * Class MapsPlace
+ * MapsPlace
  */
 class MapsPlace implements CacheInterface
 {
