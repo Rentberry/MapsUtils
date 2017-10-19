@@ -1,0 +1,36 @@
+{
+    "name": "rentberry/maps-utils",
+    "description": "Rentberry maps utils.",
+    "keywords": ["maps", "utils"],
+    "homepage": "https://github.com/Rentberry/MapsUtils",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Denis Golubovskiy",
+            "email": "bukashk0zzz@gmail.com",
+            "role": "Creator"
+        }
+    ],
+    "support": {
+        "email": "bukashk0zzz@gmail.com",
+        "issues": "https://github.com/Rentberry/MapsUtils/issues"
+    },
+    "require": {
+        "php": ">=7.1.0",
+        "psr/log": "^1.0",
+        "psr/log-implementation": "^1.0",
+        "guzzlehttp/guzzle": "^6.3"
+    },
+    "require-dev": {
+        "escapestudios/symfony2-coding-standard": "^3.0",
+        "slevomat/coding-standard": "^4.0",
+        "friendsofphp/php-cs-fixer": "^2.3",
+        "monolog/monolog": "^1.23"
+    },
+    "autoload": {
+        "psr-4": {
+            "Rentberry\\MapsUtils\\": "src/"
+        }
+    }
+}

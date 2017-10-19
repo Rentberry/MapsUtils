@@ -1,0 +1,20 @@
+language: php
+sudo: false
+
+php:
+  - 7.1
+
+before_script:
+  - composer self-update
+  - composer install --dev --prefer-dist --no-interaction -o
+
+script:
+  - ./vendor/bin/phpcs -p --standard=./ruleset.xml
+
+cache:
+  directories:
+    - $COMPOSER_CACHE_DIR
+
+notifications:
+  email:
+    - bukashk0zzz@gmail.com
