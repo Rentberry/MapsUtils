@@ -1,4 +1,4 @@
-# Symfony Filter Bundle
+# Rentberry Maps Utils
 
 [![Build Status](https://img.shields.io/travis/Rentberry/MapsUtils.svg?style=flat-square)](https://travis-ci.org/Rentberry/MapsUtils)
 [![License](https://img.shields.io/packagist/l/rentberry/maps-utils.svg?style=flat-square)](https://packagist.org/packages/rentberry/maps-utils)
