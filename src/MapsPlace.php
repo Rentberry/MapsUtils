@@ -1,12 +1,12 @@
 <?php declare(strict_types = 1);
 
-namespace Rentberry\MapsUtils\Google;
+namespace Rentberry\MapsUtils;
 
 use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Rentberry\MapsUtils\Cache\Cache;
 use Rentberry\MapsUtils\Cache\CacheInterface;
-use Rentberry\MapsUtils\Google\Objects\Place;
+use Rentberry\MapsUtils\Objects\Place;
 
 /**
  * MapsPlace

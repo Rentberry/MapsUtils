@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Rentberry\MapsUtils\Google\Objects;
+namespace Rentberry\MapsUtils\Objects;
 
 /**
  * Place object

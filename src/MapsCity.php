@@ -1,6 +1,6 @@
 <?php declare(strict_types = 1);
 
-namespace Rentberry\MapsUtils\Google;
+namespace Rentberry\MapsUtils;
 
 use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
