@@ -28,26 +28,35 @@ class SearchMapsPlace
      * @param string      $city
      * @param string      $zip
      * @param null|string $state
+     * @param null|string $country
      *
      * @return Place|null
      */
-    public function searchZipPlace(string $city, string $zip, ?string $state = null): ?Place
-    {
+    public function searchZipPlace(
+        string $city,
+        string $zip,
+        ?string $state = null,
+        ?string $country = 'USA'
+    ): ?Place {
         return $this->mapsPlace->getPlaceByAddress(
-            \sprintf('%s-%s-%s', $city, $state, $zip)
+            \sprintf('%s %s %s %s', $city, $state, $zip, $country)
         );
     }
 
     /**
      * @param string      $city
      * @param null|string $state
+     * @param null|string $country
      *
      * @return Place|null
      */
-    public function searchCityPlace(string $city, ?string $state = null): ?Place
-    {
+    public function searchCityPlace(
+        string $city,
+        ?string $state = null,
+        ?string $country = 'USA'
+    ): ?Place {
         return $this->mapsPlace->getPlaceByAddress(
-            \sprintf('%s-%s', $city, $state)
+            \sprintf('%s %s %s', $city, $state, $country)
         );
     }
 
@@ -55,13 +64,39 @@ class SearchMapsPlace
      * @param string      $neighborhood
      * @param string      $city
      * @param null|string $state
+     * @param null|string $sublocality
+     * @param null|string $country
      *
      * @return Place|null
      */
-    public function searchNeighborhoodPlace(string $neighborhood, string $city, ?string $state = null): ?Place
-    {
+    public function searchNeighborhoodPlace(
+        string $neighborhood,
+        string $city,
+        ?string $state = null,
+        ?string $sublocality = null,
+        ?string $country = 'USA'
+    ): ?Place {
         return $this->mapsPlace->getPlaceByAddress(
-            \sprintf('%s-%s-%s', $neighborhood, $city, $state)
+            \sprintf('%s %s %s %s %s', $neighborhood, $sublocality, $city, $state, $country)
+        );
+    }
+
+    /**
+     * @param string      $sublocality
+     * @param string      $city
+     * @param null|string $state
+     * @param null|string $country
+     *
+     * @return Place|null
+     */
+    public function searchSublocalityPlace(
+        string $sublocality,
+        string $city,
+        ?string $state = null,
+        ?string $country = 'USA'
+    ): ?Place {
+        return $this->mapsPlace->getPlaceByAddress(
+            \sprintf('%s %s %s %s', $sublocality, $city, $state, $country)
         );
     }
 }
