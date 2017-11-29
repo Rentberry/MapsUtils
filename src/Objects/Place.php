@@ -16,6 +16,9 @@ class Place
     /** @var float */
     protected $locationLng;
 
+    /** @var string */
+    protected $locationType;
+
     /** @var float */
     protected $boundsNortheastLat;
 
@@ -79,9 +82,14 @@ class Place
     protected $borough;
 
     /**
+     * @var string[]|null
+     */
+    protected $neighborhoods;
+
+    /**
      * @var string|null
      */
-    protected $neighborhood;
+    protected $mainNeighborhood;
 
     /**
      * @return string
@@ -139,6 +147,26 @@ class Place
     public function setLocationLng(float $locationLng): Place
     {
         $this->locationLng = $locationLng;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getLocationType(): string
+    {
+        return $this->locationType;
+    }
+
+    /**
+     * @param string $locationType
+     *
+     * @return Place
+     */
+    public function setLocationType(string $locationType): Place
+    {
+        $this->locationType = $locationType;
 
         return $this;
     }
@@ -358,7 +386,7 @@ class Place
     /**
      * @return mixed[]
      */
-    public function getAddressComponents(): array
+    public function getAddressComponents(): ?array
     {
         return $this->addressComponents;
     }
@@ -568,21 +596,41 @@ class Place
     }
 
     /**
-     * @return string|null
+     * @return string[]|null
      */
-    public function getNeighborhood(): ?string
+    public function getNeighborhoods(): ?array
     {
-        return $this->neighborhood;
+        return $this->neighborhoods;
     }
 
     /**
-     * @param string|null $neighborhood
+     * @param string[]|null $neighborhoods
      *
      * @return Place
      */
-    public function setNeighborhood(?string $neighborhood): Place
+    public function setNeighborhoods(?array $neighborhoods): Place
     {
-        $this->neighborhood = $neighborhood;
+        $this->neighborhoods = $neighborhoods;
+
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getMainNeighborhood(): ?string
+    {
+        return $this->mainNeighborhood;
+    }
+
+    /**
+     * @param null|string $mainNeighborhood
+     *
+     * @return Place
+     */
+    public function setMainNeighborhood(?string $mainNeighborhood): Place
+    {
+        $this->mainNeighborhood = $mainNeighborhood;
 
         return $this;
     }
