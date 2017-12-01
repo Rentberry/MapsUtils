@@ -76,21 +76,22 @@ class MapsPlace implements CacheInterface
         $obj->queryType = self::QUERY_TYPE_PLACE_ID;
         $obj->query = $placeId;
 
-        return $this->getPlaceByObject($obj);
+        return $this->getPlaceByObject($obj, true);
     }
 
     /**
      * @param string $address
      *
-     * @return Place|null
+     * @param bool   $checkByPoint
+     * @return null|Place
      */
-    public function getPlaceByAddress(string $address): ?Place
+    public function getPlaceByAddress(string $address, bool $checkByPoint = true): ?Place
     {
         $obj = clone $this;
         $obj->queryType = self::QUERY_TYPE_ADDRESS;
         $obj->query = $address;
 
-        return $this->getPlaceByObject($obj);
+        return $this->getPlaceByObject($obj, $checkByPoint);
     }
 
     /**
@@ -103,7 +104,7 @@ class MapsPlace implements CacheInterface
     {
         $address = \sprintf('%f,%f', $lat, $lng);
 
-        return $this->getPlaceByAddress($address);
+        return $this->getPlaceByAddress($address, false);
     }
 
     /**
@@ -190,9 +191,10 @@ class MapsPlace implements CacheInterface
 
     /**
      * @param MapsPlace $obj
+     * @param bool      $checkByPoint
      * @return null|Place
      */
-    private function getPlaceByObject(MapsPlace $obj): ?Place
+    private function getPlaceByObject(MapsPlace $obj, bool $checkByPoint): ?Place
     {
         try {
             $googleData = $this->getValidatedCacheData($obj);
@@ -204,7 +206,7 @@ class MapsPlace implements CacheInterface
                 || $place->getStreet() !== null
                 || $place->getStreetNumber() !== null;
 
-            if ($isComponentsUnderCityNotEmpty && $place->getCity() === null) {
+            if ($isComponentsUnderCityNotEmpty && $place->getCity() === null && $checkByPoint) {
                 $placeByPoint = $this->getPlaceByPoint($place->getLocationLat(), $place->getLocationLng());
                 $place->setCity($placeByPoint->getCity());
             }
