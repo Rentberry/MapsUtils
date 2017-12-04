@@ -214,8 +214,11 @@ class PlaceSimpleFactory
             ->setFormattedAddress($firstResult['formatted_address'])
             ->setLocationLat($firstResult['geometry']['location']['lat'])
             ->setLocationLng($firstResult['geometry']['location']['lng'])
-            ->setLocationType($firstResult['geometry']['location_type'])
             ->setAddressComponents($firstResult['address_components']);
+
+        if (isset($firstResult['geometry']['location_type'])) {
+            $place->setLocationType($firstResult['geometry']['location_type']);
+        }
 
         $place = $this->setBounds($firstResult, $place);
         $place = $this->setViewport($firstResult, $place);
