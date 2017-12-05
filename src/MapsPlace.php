@@ -200,6 +200,10 @@ class MapsPlace implements CacheInterface
             $googleData = $this->getValidatedCacheData($obj);
 
             $place = $this->factory->createPlace($googleData['results']);
+            if ($place === null) {
+                return null;
+            }
+
             $isComponentsUnderCityNotEmpty =
                 $place->getSublocality() !== null
                 || $place->getNeighborhoods() !== null
