@@ -2,8 +2,8 @@
 
 namespace Rentberry\MapsUtils;
 
+use Psr\Log\LoggerInterface;
 use Rentberry\MapsUtils\Objects\Place;
-use Symfony\Component\DependencyInjection\Container;
 
 /**
  * PlaceSimpleFactory
@@ -16,20 +16,43 @@ class PlaceSimpleFactory
     protected const OVERSIGHT = 0.005;
 
     /**
-     * @param mixed[] $googleDataResults
-     * @return Place
+     * @var LoggerInterface
      */
-    public function createPlace(array $googleDataResults): Place
+    private $logger;
+
+    /**
+     * PlaceSimpleFactory constructor.
+     *
+     * @param LoggerInterface $logger
+     */
+    public function __construct(LoggerInterface $logger)
     {
-        $place = new Place();
-        $place->setSource($googleDataResults);
+        $this->logger = $logger;
+    }
 
-        $place = $this->setBaseFields($googleDataResults, $place);
-        $place = $this->setAddressFields($googleDataResults, $place);
-        $place = $this->setShortAddress($place);
-        $place = $this->setMapUrl($place);
+    /**
+     * Fields can be not set if not valid googleDataResults provided.
+     *
+     * @param mixed[] $googleDataResults
+     * @return null|Place
+     */
+    public function createPlace(array $googleDataResults): ?Place
+    {
+        try {
+            $place = new Place();
+            $place->setSource($googleDataResults);
 
-        return $place;
+            $place = $this->setBaseFields($googleDataResults, $place);
+            $place = $this->setAddressFields($googleDataResults, $place);
+            $place = $this->setShortAddress($place);
+            $place = $this->setMapUrl($place);
+
+            return $place;
+        } catch (\Throwable $e) {
+            $this->logger->warning('Can\'t create place object from results array: '.$e->getMessage());
+
+            return null;
+        }
     }
 
 
@@ -58,7 +81,7 @@ class PlaceSimpleFactory
 
         foreach ($compositeComponents as $component) {
             foreach ($component['types'] as $type) {
-                $setter = 'set'.Container::camelize($type);
+                $setter = 'set'.$this->camelize($type);
                 if (\method_exists($this, $setter)) {
                     $place = $this->$setter($component, $place);
                 }
@@ -365,5 +388,14 @@ class PlaceSimpleFactory
             && isset($googlePlace['geometry']['bounds']['southwest']['lat'])
             && isset($googlePlace['geometry']['bounds']['southwest']['lng'])
             ;
+    }
+
+    /**
+     * @param string $input
+     * @return string The camelized string
+     */
+    private function camelize(string $input): string
+    {
+        return \strtr(\ucwords(\strtr($input, array('_' => ' ', '.' => '_ ', '\\' => '_ '))), array(' ' => ''));
     }
 }
