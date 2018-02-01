@@ -52,14 +52,16 @@ class MapsPlace implements CacheInterface
     private $factory;
 
     /**
+     * MapsPlace constructor.
+     *
      * @param LoggerInterface    $logger
-     * @param \Memcached         $memcached
+     * @param Cache              $cache
      * @param string             $apiKey
      * @param PlaceSimpleFactory $factory
      */
-    public function __construct(LoggerInterface $logger, \Memcached $memcached, string $apiKey, PlaceSimpleFactory $factory)
+    public function __construct(LoggerInterface $logger, Cache $cache, string $apiKey, PlaceSimpleFactory $factory)
     {
-        $this->cache = new Cache($memcached);
+        $this->cache = $cache;
         $this->apiKey = $apiKey;
         $this->logger = $logger;
         $this->factory = $factory;
