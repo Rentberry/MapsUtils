@@ -174,6 +174,21 @@ class PlaceSimpleFactory
     /**
      * @param mixed[] $component
      * @param Place   $place
+     *
+     * @return Place
+     */
+    protected function setCountry(array $component, Place $place)
+    {
+        if ($place->getCountryCode() === null) {
+            $place->setCountryCode($component['short_name']);
+        }
+
+        return $place;
+    }
+
+    /**
+     * @param mixed[] $component
+     * @param Place   $place
      * @return Place
      */
     protected function setPostalCode(array $component, Place $place): Place

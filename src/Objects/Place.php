@@ -92,6 +92,11 @@ class Place
     protected $mainNeighborhood;
 
     /**
+     * @var string|null
+     */
+    protected $countryCode;
+
+    /**
      * @return string
      */
     public function getId(): string
@@ -631,6 +636,26 @@ class Place
     public function setMainNeighborhood(?string $mainNeighborhood): Place
     {
         $this->mainNeighborhood = $mainNeighborhood;
+
+        return $this;
+    }
+
+    /**
+     * @return null|string
+     */
+    public function getCountryCode(): ?string
+    {
+        return $this->countryCode;
+    }
+
+    /**
+     * @param null|string $countryCode
+     *
+     * @return Place
+     */
+    public function setCountryCode(?string $countryCode): Place
+    {
+        $this->countryCode = $countryCode;
 
         return $this;
     }
