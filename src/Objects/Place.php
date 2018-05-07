@@ -7,73 +7,119 @@ namespace Rentberry\MapsUtils\Objects;
  */
 class Place
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $id;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $locationLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $locationLng;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $locationType;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsNortheastLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsNortheastLng;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsSouthwestLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsSouthwestLng;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportNortheastLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportNortheastLng;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportSouthwestLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportSouthwestLng;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $formattedAddress;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     */
     protected $types;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     */
     protected $addressComponents;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $streetNumber;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $street;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $city;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $state;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $zip;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     */
     protected $source;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $shortAddress;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $url;
 
     /**
@@ -106,7 +152,6 @@ class Place
 
     /**
      * @param string $id
-     *
      * @return Place
      */
     public function setId(string $id): Place
@@ -126,7 +171,6 @@ class Place
 
     /**
      * @param float $locationLat
-     *
      * @return Place
      */
     public function setLocationLat(float $locationLat): Place
@@ -146,7 +190,6 @@ class Place
 
     /**
      * @param float $locationLng
-     *
      * @return Place
      */
     public function setLocationLng(float $locationLng): Place
@@ -166,7 +209,6 @@ class Place
 
     /**
      * @param string $locationType
-     *
      * @return Place
      */
     public function setLocationType(string $locationType): Place
@@ -186,7 +228,6 @@ class Place
 
     /**
      * @param float $boundsNortheastLat
-     *
      * @return Place
      */
     public function setBoundsNortheastLat(float $boundsNortheastLat): Place
@@ -206,7 +247,6 @@ class Place
 
     /**
      * @param float $boundsNortheastLng
-     *
      * @return Place
      */
     public function setBoundsNortheastLng(float $boundsNortheastLng): Place
@@ -226,7 +266,6 @@ class Place
 
     /**
      * @param float $boundsSouthwestLat
-     *
      * @return Place
      */
     public function setBoundsSouthwestLat(float $boundsSouthwestLat): Place
@@ -246,7 +285,6 @@ class Place
 
     /**
      * @param float $boundsSouthwestLng
-     *
      * @return Place
      */
     public function setBoundsSouthwestLng(float $boundsSouthwestLng): Place
@@ -266,7 +304,6 @@ class Place
 
     /**
      * @param float $viewportNortheastLat
-     *
      * @return Place
      */
     public function setViewportNortheastLat(float $viewportNortheastLat): Place
@@ -286,7 +323,6 @@ class Place
 
     /**
      * @param float $viewportNortheastLng
-     *
      * @return Place
      */
     public function setViewportNortheastLng(float $viewportNortheastLng): Place
@@ -306,7 +342,6 @@ class Place
 
     /**
      * @param float $viewportSouthwestLat
-     *
      * @return Place
      */
     public function setViewportSouthwestLat(float $viewportSouthwestLat): Place
@@ -326,7 +361,6 @@ class Place
 
     /**
      * @param float $viewportSouthwestLng
-     *
      * @return Place
      */
     public function setViewportSouthwestLng(float $viewportSouthwestLng): Place
@@ -346,7 +380,6 @@ class Place
 
     /**
      * @param mixed[] $types
-     *
      * @return Place
      */
     public function setTypes(array $types): Place
@@ -358,7 +391,6 @@ class Place
 
     /**
      * @param string|null $formattedAddress
-     *
      * @return Place
      */
     public function setFormattedAddress(?string $formattedAddress): Place
@@ -378,7 +410,6 @@ class Place
 
     /**
      * @param mixed[] $addressComponents
-     *
      * @return Place
      */
     public function setAddressComponents(array $addressComponents): Place
@@ -398,7 +429,6 @@ class Place
 
     /**
      * @param string|null $street
-     *
      * @return Place
      */
     public function setStreet(?string $street): Place
@@ -418,7 +448,6 @@ class Place
 
     /**
      * @param string|null $city
-     *
      * @return Place
      */
     public function setCity(?string $city): Place
@@ -438,7 +467,6 @@ class Place
 
     /**
      * @param string|null $state
-     *
      * @return Place
      */
     public function setState(?string $state): Place
@@ -458,7 +486,6 @@ class Place
 
     /**
      * @param string|null $zip
-     *
      * @return Place
      */
     public function setZip(?string $zip): Place
@@ -478,7 +505,6 @@ class Place
 
     /**
      * @param string|null $streetNumber
-     *
      * @return Place
      */
     public function setStreetNumber(?string $streetNumber): Place
@@ -498,7 +524,6 @@ class Place
 
     /**
      * @param mixed[] $data
-     *
      * @return Place
      */
     public function setSource(array $data): Place
@@ -518,7 +543,6 @@ class Place
 
     /**
      * @param string $shortAddress
-     *
      * @return Place
      */
     public function setShortAddress(string $shortAddress): Place
@@ -538,7 +562,6 @@ class Place
 
     /**
      * @param string|null $url
-     *
      * @return Place
      */
     public function setUrl(?string $url): Place
@@ -566,7 +589,6 @@ class Place
 
     /**
      * @param string|null $borough
-     *
      * @return Place
      */
     public function setBorough(?string $borough): Place
@@ -590,7 +612,6 @@ class Place
      * Alias for borough
      *
      * @param string|null $borough
-     *
      * @return Place
      */
     public function setSublocality(?string $borough): Place
@@ -610,7 +631,6 @@ class Place
 
     /**
      * @param string[]|null $neighborhoods
-     *
      * @return Place
      */
     public function setNeighborhoods(?array $neighborhoods): Place
@@ -630,7 +650,6 @@ class Place
 
     /**
      * @param null|string $mainNeighborhood
-     *
      * @return Place
      */
     public function setMainNeighborhood(?string $mainNeighborhood): Place
@@ -650,7 +669,6 @@ class Place
 
     /**
      * @param null|string $countryCode
-     *
      * @return Place
      */
     public function setCountryCode(?string $countryCode): Place
