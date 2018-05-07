@@ -174,6 +174,21 @@ class PlaceSimpleFactory
     /**
      * @param mixed[] $component
      * @param Place   $place
+     *
+     * @return Place
+     */
+    protected function setCountry(array $component, Place $place): Place
+    {
+        if ($place->getCountryCode() === null) {
+            $place->setCountryCode($component['short_name']);
+        }
+
+        return $place;
+    }
+
+    /**
+     * @param mixed[] $component
+     * @param Place   $place
      * @return Place
      */
     protected function setPostalCode(array $component, Place $place): Place
@@ -222,7 +237,6 @@ class PlaceSimpleFactory
      * Basic data such as geometry or types, etc. - provided only
      * with first result (basic for this place). So from $googleDataResults
      * retrieved first element (always!)
-     *
      *
      * @param mixed[] $googleDataResults
      * @param Place   $place
