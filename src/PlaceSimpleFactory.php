@@ -150,6 +150,20 @@ class PlaceSimpleFactory
      */
     protected function setLocality(array $component, Place $place): Place
     {
+        $place->setCity($component['long_name']);
+
+        return $place;
+    }
+
+    /**
+     * Postal town as alternative data if locality isn't present
+     *
+     * @param mixed[] $component
+     * @param Place   $place
+     * @return Place
+     */
+    protected function setPostalTown(array $component, Place $place): Place
+    {
         if ($place->getCity() === null) {
             $place->setCity($component['long_name']);
         }
