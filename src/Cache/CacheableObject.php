@@ -5,7 +5,7 @@ namespace Rentberry\MapsUtils\Cache;
 /**
  * Cache object
  */
-class CacheObject implements CacheInterface
+class CacheableObject implements CacheableInterface
 {
     /**
      * @var string
@@ -36,9 +36,9 @@ class CacheObject implements CacheInterface
     /**
      * @param string $cacheKey
      *
-     * @return CacheObject
+     * @return CacheableObject
      */
-    public function setCacheKey(string $cacheKey): CacheObject
+    public function setCacheKey(string $cacheKey): CacheableObject
     {
         $this->cacheKey = $cacheKey;
 
@@ -48,9 +48,9 @@ class CacheObject implements CacheInterface
     /**
      * @param mixed $data
      *
-     * @return CacheObject
+     * @return CacheableObject
      */
-    public function setData($data): CacheObject
+    public function setData($data): CacheableObject
     {
         $this->data = $data;
 

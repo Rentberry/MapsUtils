@@ -5,12 +5,12 @@ namespace Rentberry\MapsUtils;
 use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Rentberry\MapsUtils\Cache\Cache;
-use Rentberry\MapsUtils\Cache\CacheInterface;
+use Rentberry\MapsUtils\Cache\CacheableInterface;
 
 /**
  * MapsTimezone
  */
-class MapsTimezone implements CacheInterface
+class MapsTimezone implements CacheableInterface
 {
     private const LOCATION_ROUND_LEVEL = 3;
     /**
