@@ -110,11 +110,11 @@ class MapsTimezone implements CacheableInterface
         $roundedLattitude = \round($this->lat, self::LOCATION_ROUND_LEVEL);
         $roundedLongitude = \round($this->lng, self::LOCATION_ROUND_LEVEL);
 
-        return self::class.$roundedLattitude.$roundedLongitude;
+        return \sprintf('%s_%s', self::class, sha1($roundedLattitude.$roundedLongitude, false));
     }
 
     /**
-     * @param mixed[] $result
+     * @param mixed[] $result`
      *
      * @return bool
      */
