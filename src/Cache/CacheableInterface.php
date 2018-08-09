@@ -3,9 +3,9 @@
 namespace Rentberry\MapsUtils\Cache;
 
 /**
- * Interface Cache
+ * Interface Cacheable
  */
-interface CacheInterface
+interface CacheableInterface
 {
     /**
      * @return mixed

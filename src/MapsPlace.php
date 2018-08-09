@@ -5,13 +5,13 @@ namespace Rentberry\MapsUtils;
 use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Rentberry\MapsUtils\Cache\Cache;
-use Rentberry\MapsUtils\Cache\CacheInterface;
+use Rentberry\MapsUtils\Cache\CacheableInterface;
 use Rentberry\MapsUtils\Objects\Place;
 
 /**
  * MapsPlace
  */
-class MapsPlace implements CacheInterface
+class MapsPlace implements CacheableInterface
 {
     public const QUERY_TYPE_ADDRESS = 'address';
     public const QUERY_TYPE_PLACE_ID = 'place_id';
