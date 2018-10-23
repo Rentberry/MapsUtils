@@ -122,9 +122,7 @@ class PlaceSimpleFactory
      */
     protected function setStreetNumber(array $component, Place $place): Place
     {
-        if ($place->getStreetNumber() === null) {
-            $place->setStreetNumber($component['long_name']);
-        }
+        $place->setStreetNumber($component['long_name']);
 
         return $place;
     }
@@ -136,9 +134,7 @@ class PlaceSimpleFactory
      */
     protected function setRoute(array $component, Place $place): Place
     {
-        if ($place->getStreet() === null) {
-            $place->setStreet($component['short_name']);
-        }
+        $place->setStreet($component['short_name']);
 
         return $place;
     }
@@ -164,9 +160,7 @@ class PlaceSimpleFactory
      */
     protected function setPostalTown(array $component, Place $place): Place
     {
-        if ($place->getCity() === null) {
-            $place->setCity($component['long_name']);
-        }
+        $place->setCity($component['long_name']);
 
         return $place;
     }
@@ -178,9 +172,7 @@ class PlaceSimpleFactory
      */
     protected function setAdministrativeAreaLevel1(array $component, Place $place): Place
     {
-        if ($place->getState() === null) {
-            $place->setState($component['short_name']);
-        }
+        $place->setState($component['short_name']);
 
         return $place;
     }
@@ -192,9 +184,7 @@ class PlaceSimpleFactory
      */
     protected function setPostalCode(array $component, Place $place): Place
     {
-        if ($place->getZip() === null) {
-            $place->setZip($component['long_name']);
-        }
+        $place->setZip($component['long_name']);
 
         return $place;
     }
@@ -206,9 +196,7 @@ class PlaceSimpleFactory
      */
     protected function setSublocality(array $component, Place $place): Place
     {
-        if ($place->getSublocality() === null) {
-            $place->setSublocality($component['long_name']);
-        }
+        $place->setSublocality($component['long_name']);
 
         return $place;
     }

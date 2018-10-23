@@ -152,7 +152,7 @@ class MapsPlace implements CacheInterface
     private function getApiUrl(): string
     {
         return \sprintf(
-            'https://maps.googleapis.com/maps/api/geocode/json?%s=%s&key=%s',
+            'https://maps.googleapis.com/maps/api/geocode/json?%s=%s&key=%s&language=en',
             $this->queryType,
             $this->query,
             $this->apiKey
