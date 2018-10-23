@@ -2,35 +2,37 @@
 
 namespace Rentberry\MapsUtils\Cache;
 
+use Psr\SimpleCache\CacheInterface;
+
 /**
  * Cache service
  */
 class Cache
 {
     /**
-     * @var \Memcached
+     * @var CacheInterface
      */
     protected $cache;
 
     /**
-     * @param \Memcached $cache
+     * @param CacheInterface $cache
      */
-    public function __construct(\Memcached $cache)
+    public function __construct(CacheInterface $cache)
     {
         $this->cache = $cache;
     }
 
     /**
-     * @param CacheInterface $object
+     * @param CacheableInterface $object
      *
      * @return false|mixed
      */
-    public function getData(CacheInterface $object)
+    public function getData(CacheableInterface $object)
     {
         $cacheKey = $object->getCacheKey();
-        $data = $this->cache->get($cacheKey);
+        $data = $this->cache->get($cacheKey, null);
 
-        if ($data !== false) {
+        if ($data !== null) {
             return $data;
         }
 
@@ -46,11 +48,11 @@ class Cache
     /**
      * Force update data in cache
      *
-     * @param CacheInterface $object
+     * @param CacheableInterface $object
      *
      * @return false|mixed
      */
-    public function updateData(CacheInterface $object)
+    public function updateData(CacheableInterface $object)
     {
         $cacheKey = $object->getCacheKey();
         $data = $object->getData();

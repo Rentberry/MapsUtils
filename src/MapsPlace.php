@@ -5,13 +5,13 @@ namespace Rentberry\MapsUtils;
 use GuzzleHttp\Client;
 use Psr\Log\LoggerInterface;
 use Rentberry\MapsUtils\Cache\Cache;
-use Rentberry\MapsUtils\Cache\CacheInterface;
+use Rentberry\MapsUtils\Cache\CacheableInterface;
 use Rentberry\MapsUtils\Objects\Place;
 
 /**
  * MapsPlace
  */
-class MapsPlace implements CacheInterface
+class MapsPlace implements CacheableInterface
 {
     public const QUERY_TYPE_ADDRESS = 'address';
     public const QUERY_TYPE_PLACE_ID = 'place_id';
@@ -52,14 +52,16 @@ class MapsPlace implements CacheInterface
     private $factory;
 
     /**
+     * MapsPlace constructor.
+     *
      * @param LoggerInterface    $logger
-     * @param \Memcached         $memcached
+     * @param Cache              $cache
      * @param string             $apiKey
      * @param PlaceSimpleFactory $factory
      */
-    public function __construct(LoggerInterface $logger, \Memcached $memcached, string $apiKey, PlaceSimpleFactory $factory)
+    public function __construct(LoggerInterface $logger, Cache $cache, string $apiKey, PlaceSimpleFactory $factory)
     {
-        $this->cache = new Cache($memcached);
+        $this->cache = $cache;
         $this->apiKey = $apiKey;
         $this->logger = $logger;
         $this->factory = $factory;
