@@ -40,7 +40,7 @@ class MapsCity
      * @param float $latitude
      * @param float $longitude
      *
-     * @return null|string
+     * @return string|null
      */
     public function getCityByCoordinates(float $latitude, float $longitude): ?string
     {

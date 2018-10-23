@@ -7,73 +7,119 @@ namespace Rentberry\MapsUtils\Objects;
  */
 class Place
 {
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $id;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $locationLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $locationLng;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $locationType;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsNortheastLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsNortheastLng;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsSouthwestLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $boundsSouthwestLng;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportNortheastLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportNortheastLng;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportSouthwestLat;
 
-    /** @var float */
+    /**
+     * @var float
+     */
     protected $viewportSouthwestLng;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $formattedAddress;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     */
     protected $types;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     */
     protected $addressComponents;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $streetNumber;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $street;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $city;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $state;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $zip;
 
-    /** @var mixed[] */
+    /**
+     * @var mixed[]
+     */
     protected $source;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $shortAddress;
 
-    /** @var string */
+    /**
+     * @var string
+     */
     protected $url;
 
     /**
@@ -616,7 +662,7 @@ class Place
     }
 
     /**
-     * @return null|string
+     * @return string|null
      */
     public function getMainNeighborhood(): ?string
     {
@@ -624,7 +670,7 @@ class Place
     }
 
     /**
-     * @param null|string $mainNeighborhood
+     * @param string|null $mainNeighborhood
      *
      * @return Place
      */

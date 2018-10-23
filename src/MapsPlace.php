@@ -81,9 +81,9 @@ class MapsPlace implements CacheInterface
 
     /**
      * @param string $address
-     *
      * @param bool   $checkByPoint
-     * @return null|Place
+     *
+     * @return Place|null
      */
     public function getPlaceByAddress(string $address, bool $checkByPoint = true): ?Place
     {
@@ -143,7 +143,9 @@ class MapsPlace implements CacheInterface
      */
     protected function getClient(): Client
     {
-        return ($this->client instanceof Client) ? $this->client : new Client();
+        return $this->client instanceof Client
+            ? $this->client
+            : new Client();
     }
 
     /**
@@ -181,6 +183,7 @@ class MapsPlace implements CacheInterface
 
         if (!\is_array($googleData) || !$this->isGetPlaceResultCorrect($googleData)) {
             $googleData = $this->cache->updateData($obj);
+
             if (!\is_array($googleData) || !$this->isGetPlaceResultCorrect($googleData)) {
                 throw new \Exception(\sprintf('Place with query %s was not found', $obj->query));
             }
@@ -192,7 +195,7 @@ class MapsPlace implements CacheInterface
     /**
      * @param MapsPlace $obj
      * @param bool      $checkByPoint
-     * @return null|Place
+     * @return Place|null
      */
     private function getPlaceByObject(MapsPlace $obj, bool $checkByPoint): ?Place
     {
@@ -200,6 +203,7 @@ class MapsPlace implements CacheInterface
             $googleData = $this->getValidatedCacheData($obj);
 
             $place = $this->factory->createPlace($googleData['results']);
+
             if ($place === null) {
                 return null;
             }

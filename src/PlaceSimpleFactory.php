@@ -34,7 +34,7 @@ class PlaceSimpleFactory
      * Fields can be not set if not valid googleDataResults provided.
      *
      * @param mixed[] $googleDataResults
-     * @return null|Place
+     * @return Place|null
      */
     public function createPlace(array $googleDataResults): ?Place
     {
@@ -82,6 +82,7 @@ class PlaceSimpleFactory
         foreach ($compositeComponents as $component) {
             foreach ($component['types'] as $type) {
                 $setter = 'set'.$this->camelize($type);
+
                 if (\method_exists($this, $setter)) {
                     $place = $this->$setter($component, $place);
                 }
@@ -101,6 +102,7 @@ class PlaceSimpleFactory
     protected function setMainNeighborhood(array $googleDataResults, Place $place): Place
     {
         $firstResult = $googleDataResults[0];
+
         foreach ($firstResult['address_components'] as $component) {
             foreach ($component['types'] as $type) {
                 if ($type === 'neighborhood' && !$place->getMainNeighborhood()) {
@@ -108,6 +110,7 @@ class PlaceSimpleFactory
                 }
             }
         }
+
         if (!$place->getMainNeighborhood() && $place->getNeighborhoods() !== null) {
             $place->setMainNeighborhood($place->getNeighborhoods()[0]);
         }
@@ -215,6 +218,7 @@ class PlaceSimpleFactory
         if (!\in_array($component['long_name'], $neighborhoods)) {
             $neighborhoods[] = $component['long_name'];
         }
+
         $place->setNeighborhoods($neighborhoods);
 
         return $place;
@@ -224,7 +228,6 @@ class PlaceSimpleFactory
      * Basic data such as geometry or types, etc. - provided only
      * with first result (basic for this place). So from $googleDataResults
      * retrieved first element (always!)
-     *
      *
      * @param mixed[] $googleDataResults
      * @param Place   $place

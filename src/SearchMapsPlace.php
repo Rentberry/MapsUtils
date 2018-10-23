@@ -27,8 +27,8 @@ class SearchMapsPlace
     /**
      * @param string      $city
      * @param string      $zip
-     * @param null|string $state
-     * @param null|string $country
+     * @param string|null $state
+     * @param string|null $country
      *
      * @return Place|null
      */
@@ -45,8 +45,8 @@ class SearchMapsPlace
 
     /**
      * @param string      $city
-     * @param null|string $state
-     * @param null|string $country
+     * @param string|null $state
+     * @param string|null $country
      *
      * @return Place|null
      */
@@ -63,9 +63,9 @@ class SearchMapsPlace
     /**
      * @param string      $neighborhood
      * @param string      $city
-     * @param null|string $state
-     * @param null|string $sublocality
-     * @param null|string $country
+     * @param string|null $state
+     * @param string|null $sublocality
+     * @param string|null $country
      *
      * @return Place|null
      */
@@ -84,8 +84,8 @@ class SearchMapsPlace
     /**
      * @param string      $sublocality
      * @param string      $city
-     * @param null|string $state
-     * @param null|string $country
+     * @param string|null $state
+     * @param string|null $country
      *
      * @return Place|null
      */
